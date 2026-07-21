@@ -1,0 +1,81 @@
+.ocean-bg{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top,#145d96 0%,#063761 45%,#02172d 100%);
+}
+
+.ocean-bg::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle at top,
+        rgba(255,255,255,.12),
+        transparent 65%);
+
+    animation:lightMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes lightMove{
+
+    from{
+        transform:scale(1);
+        opacity:.6;
+    }
+
+    to{
+        transform:scale(1.15);
+        opacity:1;
+    }
+
+}
+
+/* BURBUJAS */
+
+.bubbles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.bubble{
+
+    position:absolute;
+    bottom:-80px;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    animation:rise linear infinite;
+}
+
+@keyframes rise{
+
+    from{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-120vh) scale(1.4);
+        opacity:0;
+    }
+
+}
